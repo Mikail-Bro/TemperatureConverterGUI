@@ -1,15 +1,20 @@
+// Imports
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// Class with main method
 public class TemperatureConverterGUI {
     public static void main(String[] args) {
+
+        // Create the main window
         JFrame window = new JFrame("~~~Temperature Converter~~~");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(400, 300);
         window.setLayout(new GridLayout(5, 2));
 
+        // Create the interactive elements and labels to them
         JLabel temperatureDemandLabel = new JLabel("Enter Temperature Here:");
         JTextField temperatureInput = new JTextField();
 
@@ -23,6 +28,7 @@ public class TemperatureConverterGUI {
         JButton convertButton = new JButton("Convert");
         JLabel conversionResultLabel = new JLabel("Result: ");
 
+        // Add the elements to the main window
         window.add(temperatureDemandLabel);
         window.add(temperatureInput);
         window.add(sourceScaleLabel);
@@ -32,6 +38,7 @@ public class TemperatureConverterGUI {
         window.add(convertButton);
         window.add(conversionResultLabel);
 
+        // Set up the converter and provide error handling
         convertButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,6 +73,7 @@ public class TemperatureConverterGUI {
         window.setVisible(true);
     }
 
+    // Logic of converting
     public static double calculateTemperature(double value, String oldScale, String newScale) {
         double celsiusValue;
 
